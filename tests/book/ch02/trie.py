@@ -25,6 +25,7 @@ class Trie(Node):
         super().__init__(None)
 
     def __contains__(self, key):
+        # self[key] 调用__getitem__()函数
         return self[key] is not None
 
     def __getitem__(self, key):
@@ -52,7 +53,15 @@ if __name__ == '__main__':
     trie['自然语言'] = 'language'
     trie['自语'] = 'talk	to oneself'
     trie['入门'] = 'introduction'
+
+    # assert 是断言， 如果是true程序运行，如果是false程序终止
+    # in 调用__contains__()函数
+    # ‘自然’-->key
     assert '自然' in trie
+
+    # print(trie['自然'])
+    # # nature
+
     # 删
     trie['自然'] = None
     assert '自然' not in trie
